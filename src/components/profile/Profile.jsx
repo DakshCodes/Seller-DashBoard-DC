@@ -6,7 +6,7 @@ const Profile = () => {
         <div className='content'>
             <div class="card-container">
                 <span class="pro">PRO</span>
-                <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
+                <img class="round" src="https://randomuser.me/api/portraits/men/79.jpg" alt="user" />
                 <h3>Daksh Codes</h3>
                 <h6>India</h6>
                 <p>User interface designer and <br /> Full Stack developer</p>
