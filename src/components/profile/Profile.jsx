@@ -9,13 +9,12 @@ const Profile = () => {
                 <img class="round" src="https://randomuser.me/api/portraits/men/79.jpg" alt="user" />
                 <h3>Daksh Codes</h3>
                 <h6>India</h6>
-                <p>User interface designer and <br /> Full Stack developer</p>
                 <div class="buttons">
                     <button class="primary">
-                        Message
+                        Edit Profile
                     </button>
                     <button class="primary ghost">
-                        Following
+                        Your Earnings
                     </button>
                 </div>
                 <div class="info">
