@@ -2,8 +2,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: 4rem;
+  /* padding-top: 4rem; */
   transition: all 300ms ease;
+  height: 90%;
+  width: 20%;
+  background-color: #fff;
+  border-radius: 30px 0  0 30px;
+ 
 }
 /* logo */
 .bars{
@@ -12,27 +17,22 @@
 
 .logo {
   display: flex;
-  height: 5rem;
-  font-weight: bold;
-  font-size: 22px;
-  gap: 1rem;
+  height: 3rem;
+  
   align-items: center;
   justify-content: center;
-  height: 4%;
-}
-.logo > span > span {
-  color: var(--pink);
+  margin-top: 1rem;
 }
 
+
 .logo > img {
-  width: 3rem;
-  height: 3rem;
+  width:130px;
 }
 
 
 /* menu */
 .menu {
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -60,14 +60,18 @@
 }
 
 .active {
-  background: var(--activeItem);
+  background: #231E39;
+  color: #fff;
   margin-left: 0;
+}
+.active a{
+  color: #fff;
 }
 .active::before {
   content: "";
   width: 8px;
   height: 100%;
-  background: var(--pink);
+  background: rgb(149, 144, 144);
   margin-right: calc(1rem - 8px);
 }
 
