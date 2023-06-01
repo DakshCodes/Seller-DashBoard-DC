@@ -13,12 +13,12 @@ export const SidebarData = [
   {
     icon: UilEstate,
     heading: "Profile",
-    link:"/"
+    link:""
   },
   {
     icon: UilClipboardAlt,
     heading: "MyWallet",
-    link:"mywallet"
+    link:"Wallet"
   },
   {
     icon: UilUsersAlt,
@@ -28,6 +28,6 @@ export const SidebarData = [
   {
     icon: UilPackage,
     heading: 'MyBooks',
-    link:"mybooks"
+    link:"orders"
   },
 ];
