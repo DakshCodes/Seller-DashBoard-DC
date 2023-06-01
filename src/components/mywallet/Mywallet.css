@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wallet-main{
+    border: 2px solid black;
+    height: fit-content;
+    border-radius: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    height: 50% ;
+    /* text-align: center; */
+}
+.wallet-title{
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+
+    margin: 2rem;
+
+}
+
+.wallet-title svg{
+
+    font-size: 2rem;
+}
+.items-center{
+    align-items: center ;
+}
+
+.wallet-btn{
+    padding: 1rem 2rem;
+    background-color: cyan;
+    border: none;
+    font-weight: bold;
+    margin: 1rem;
+}
