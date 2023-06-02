@@ -18,7 +18,7 @@ export const SidebarData = [
   {
     icon: UilClipboardAlt,
     heading: "MyWallet",
-    link:"Wallet"
+    link:"mywallet"
   },
   {
     icon: UilUsersAlt,

@@ -5,6 +5,7 @@ import Profile from '../profile/Profile';
 import Sidebar from '../Sidebar'
 import './dashboard.css';
 import Mywallet from '../mywallet/Mywallet';
+import AddBooks from '../addbooks/AddBooks';
 
 
 
@@ -16,6 +17,8 @@ const Dashboard = () => {
       <Routes>
         <Route path='/' element={<Profile />} />
         <Route path='/orders' exact element={<Orders />} />
+        <Route path='/mywallet' exact element={<Mywallet />} />
+        <Route path='/addbooks' exact element={<AddBooks />} />
       </Routes>
     </div>
   )
