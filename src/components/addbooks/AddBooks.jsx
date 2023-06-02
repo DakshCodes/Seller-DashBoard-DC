@@ -1,88 +1,134 @@
-import React from 'react'
-import './AddBooks.css';
+import React, { useState } from 'react';
+import "./AddBooks.css"
 
-const AddBooks = () => {
+const AddBookForm = () => {
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState('');
+    const [earning, setEarning] = useState('');
+    const [pickupAddress, setPickupAddress] = useState('');
+    const [tags, setTags] = useState([]);
+    const [images, setImages] = useState([]);
+
+    const handleInputChange = (e, field) => {
+        const value = e.target.value;
+        switch (field) {
+            case 'title':
+                setTitle(value);
+                break;
+            case 'description':
+                setDescription(value);
+                break;
+            case 'price':
+                setPrice(value);
+                // Calculate earning based on a fixed percentage, e.g., 80% of the price
+                setEarning(value * 0.8);
+                break;
+            case 'pickupAddress':
+                setPickupAddress(value);
+                break;
+            case 'tags':
+                setTags(value.split(','));
+                break;
+            case 'images':
+                setImages([...e.target.files]);
+                break;
+            default:
+                break;
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission here (e.g., send data to the server)
+        // Reset the form fields if needed
+        setTitle('');
+        setDescription('');
+        setPrice('');
+        setEarning('');
+        setPickupAddress('');
+        setTags([]);
+        setImages([]);
+    };
+
     return (
-        <div className='content'>
+
+
+        <div className='content items-align'>
             <div class='signup-container'>
-                <div class='left-container'>
-                    <h1>
-                        <i class='fas fa-paw'></i>
-                        PUPASSURE
-                    </h1>
-                    <div class='puppy'>
-                        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-542207-jpeg.png' />
-                    </div>
+
+                <div className="add-book-form">
+                    <h2>Add Book</h2>
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <label htmlFor="title">Book Title</label>
+                            <input
+                                type="text"
+                                id="title"
+                                value={title}
+                                onChange={(e) => handleInputChange(e, 'title')}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="description">Book Description</label>
+                            <textarea
+                                id="description"
+                                value={description}
+                                onChange={(e) => handleInputChange(e, 'description')}
+                                required
+                            ></textarea>
+                        </div>
+                        <div>
+                            <label htmlFor="price">Book Price</label>
+                            <input
+                                type="number"
+                                id="price"
+                                value={price}
+                                onChange={(e) => handleInputChange(e, 'price')}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="earning">User Earning</label>
+                            <input type="number" id="earning" value={earning} disabled />
+                        </div>
+                        <div>
+                            <label htmlFor="pickupAddress">Pickup Address</label>
+                            <input
+                                type="text"
+                                id="pickupAddress"
+                                value={pickupAddress}
+                                onChange={(e) => handleInputChange(e, 'pickupAddress')}
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor="tags">Tags</label>
+                            <input
+                                type="text"
+                                id="tags"
+                                value={tags.join(',')}
+                                onChange={(e) => handleInputChange(e, 'tags')}
+                            />
+                            <small>Separate tags with commas (e.g., fiction, thriller)</small>
+                        </div>
+                        <div>
+                            <label htmlFor="images">Book Images</label>
+                            <input
+                                type="file"
+                                id="images"
+                                onChange={(e) => handleInputChange(e, 'images')}
+                                multiple
+                            />
+                        </div>
+                        <button type="submit">Add Book</button>
+                    </form>
                 </div>
-                <div class='right-container'>
-                    <header>
-                        <h1>Yay, puppies! Ensure your pup gets the best care!</h1>
-                        <div class='set'>
-                            <div class='pets-name'>
-                                <label for='pets-name'>Name</label>
-                                <input id='pets-name' placeholder="Pet's name" type='text' />
-                            </div>
-                            <div class='pets-photo'>
-                                <button id='pets-upload'>
-                                    <i class='fas fa-camera-retro'></i>
-                                </button>
-                                <label for='pets-upload'>Upload a photo</label>
-                            </div>
-                        </div>
-                        <div class='set'>
-                            <div class='pets-breed'>
-                                <label for='pets-breed'>Breed</label>
-                                <input id='pets-breed' placeholder="Pet's breed" type='text' />
-                            </div>
-                            <div class='pets-birthday'>
-                                <label for='pets-birthday'>Birthday</label>
-                                <input id='pets-birthday' placeholder='MM/DD/YYYY' type='text' />
-                            </div>
-                        </div>
-                        <div class='set'>
-                            <div class='pets-gender'>
-                                <label for='pet-gender-female'>Gender</label>
-                                <div class='radio-container'>
-                                    <input checked='' id='pet-gender-female' name='pet-gender' type='radio' value='female' />
-                                    <label for='pet-gender-female'>Female</label>
-                                    <input id='pet-gender-male' name='pet-gender' type='radio' value='male' />
-                                    <label for='pet-gender-male'>Male</label>
-                                </div>
-                            </div>
-                            <div class='pets-spayed-neutered'>
-                                <label for='pet-spayed'>Spayed or Neutered</label>
-                                <div class='radio-container'>
-                                    <input checked='' id='pet-spayed' name='spayed-neutered' type='radio' value='spayed' />
-                                    <label for='pet-spayed'>Spayed</label>
-                                    <input id='pet-neutered' name='spayed-neutered' type='radio' value='neutered' />
-                                    <label for='pet-neutered'>Neutered</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='pets-weight'>
-                            <label for='pet-weight-0-25'>Weight</label>
-                            <div class='radio-container'>
-                                <input checked='' id='pet-weight-0-25' name='pet-weight' type='radio' value='0-25' />
-                                <label for='pet-weight-0-25'>0-25 lbs</label>
-                                <input id='pet-weight-25-50' name='pet-weight' type='radio' value='25-50' />
-                                <label for='pet-weight-25-50'>25-50 lbs</label>
-                                <input id='pet-weight-50-100' name='pet-weight' type='radio' value='50-100' />
-                                <label for='pet-weight-50-100'>50-100 lbs</label>
-                                <input id='pet-weight-100-plus' name='pet-weight' type='radio' value='100+' />
-                                <label for='pet-weight-100-plus'>100+ lbs</label>
-                            </div>
-                        </div>
-                    </header>
-                    <footer>
-                        <div class='set'>
-                            <button id='back'>Back</button>
-                            <button id='next'>Next</button>
-                        </div>
-                    </footer>
-                </div>
+
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default AddBooks
+export default AddBookForm;
