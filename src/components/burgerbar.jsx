@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Sidebar.css";
+import "./burgerbar.css";
 import Logo from "../components/Logo.svg";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
 import { SidebarData } from "../Data/Data";
@@ -7,7 +7,7 @@ import { SidebarData } from "../Data/Data";
 import { LayoutGroupContext, motion } from "framer-motion";
 import {  useLocation, useNavigate, useParams, useRoutes, useSearchParams } from "react-router-dom";
 
-const Sidebar = () => {
+const Burgerbar = ({menuUpdate}) => {
   const [selected, setSelected] = useState(0);
   const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const pathname= params.pathname.split('/')[1];
   return (
     <>
      
-      <motion.div className='sidebar'
+      <motion.div className='sidebar1'
 
    
       >
@@ -34,7 +34,8 @@ const pathname= params.pathname.split('/')[1];
                 className={pathname === item.link ? "menuItem active" : "menuItem"}
                 key={index}
                 onClick={() => {
-                  navigate(item.link)
+                  navigate(item.link);
+                  menuUpdate();
                 }}
               >
 
@@ -54,4 +55,4 @@ const pathname= params.pathname.split('/')[1];
   );
 };
 
-export default Sidebar;
+export default Burgerbar;
