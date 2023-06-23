@@ -6,13 +6,17 @@ import Sidebar from '../Sidebar'
 import './dashboard.css';
 import Mywallet from '../mywallet/Mywallet';
 import AddBooks from '../addbooks/AddBooks';
+import Hemburger from '../hemburger';
 
 
 
 
 const Dashboard = () => {
+
+  
   return (
     <div className='dashboard'>
+      <Hemburger/>
       <Sidebar />
       <Routes>
         <Route path='/' element={<Profile />} />
